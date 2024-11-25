@@ -1,0 +1,18 @@
+{
+    "manifest_version": 3,
+    "name": "Shopping List",
+    "description": "Import recipes from popular recipe websites",
+    "version": "1.0",
+    "action": {
+	"default_popup": "popup/popup.html",
+	"default_icon": "images/icon.png"
+    },
+    "content_scripts": [
+	{
+	    "js": ["scripts/content.js"],
+	    "matches": [
+		"<all_urls>"
+	    ]
+	}
+    ]
+}
