@@ -16,6 +16,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.type === "FROM_POPUP" && message.action === "GET_DATA") {
         const data = getRecipeData();
 
-        sendResponse({ success: true, data });
+        sendResponse({ success: true, data: data || "Could not get data" });
     }
 });

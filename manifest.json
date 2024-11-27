@@ -4,15 +4,16 @@
     "description": "Import recipes from popular recipe websites",
     "version": "1.0",
     "action": {
-	"default_popup": "popup/popup.html",
-	"default_icon": "images/icon.png"
+        "default_popup": "popup/popup.html",
+        "default_icon": "images/icon.png"
     },
     "content_scripts": [
-	{
-	    "js": ["scripts/content.js"],
-	    "matches": [
-		"<all_urls>"
-	    ]
-	}
-    ]
+        {
+            "js": ["scripts/content.js"],
+            "matches": ["<all_urls>"]
+        }
+    ],
+    "background": {
+        "service_worker": "background.js"
+    }
 }
