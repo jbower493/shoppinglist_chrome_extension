@@ -13,7 +13,10 @@ function getRecipeData() {
 }
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    if (message.type === "FROM_POPUP" && message.action === "GET_DATA") {
+    if (
+        message.type === "FROM_POPUP_TO_CONTENT" &&
+        message.action === "GET_DATA"
+    ) {
         const data = getRecipeData();
 
         sendResponse({ success: true, data: data || "Could not get data" });
