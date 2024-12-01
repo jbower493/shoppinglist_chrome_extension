@@ -83,7 +83,6 @@ function pullDataFromSchema(schema) {
             };
         });
     }
-    console.log(schema);
 
     function getPrepTime(totalTime) {
         const numOfMins = Number(totalTime.split("PT")[1]?.split("M")[0]);

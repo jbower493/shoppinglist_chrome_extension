@@ -18,8 +18,6 @@ getRecipeButton.addEventListener("click", () => {
                     },
                     (response) => {
                         // Get response back from background script to say it's finished processing
-
-                        console.log(response);
                     }
                 );
             }
