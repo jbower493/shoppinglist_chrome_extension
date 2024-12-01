@@ -1,8 +1,24 @@
 <html>
 
+<head>
+    <link href="popup.css" rel="stylesheet" />
+</head>
+
 <body>
-    <h1>Hello from Shopping List extension</h1>
-    <button id="getRecipeData" type="button">Get Recipe Data</button>
+    <h1>Shopping List</h1>
+    <div id="mainContent">
+        <p>Use the Shopping List browser extension to import recipes from the web straight to your Shopping List
+            account.
+        </p>
+        <ol>
+            <li>Find a recipe online and open the Shopping List browser extension</li>
+            <li>Click the "Import Recipe" button below</li>
+            <li>Check notifications in your Shopping List account, and confirm the imported recipe</li>
+        </ol>
+        <div id="buttonContainer">
+            <button id="getRecipeData" type="button">Import Recipe</button>
+        </div>
+    </div>
     <script src='popup.js'></script>
 </body>
 

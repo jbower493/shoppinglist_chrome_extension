@@ -1,6 +1,10 @@
 const getRecipeButton = document.getElementById("getRecipeData");
 
 getRecipeButton.addEventListener("click", () => {
+    // Show loading state
+    const buttonContainer = document.getElementById("buttonContainer");
+    buttonContainer.innerText = "Loading...";
+
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
         const activeTab = tabs[0];
 
@@ -18,6 +22,9 @@ getRecipeButton.addEventListener("click", () => {
                     },
                     (response) => {
                         // Get response back from background script to say it's finished processing
+
+                        buttonContainer.innerText =
+                            "Success! Now confirm the recipe import in your Shopping List account.";
                     }
                 );
             }
