@@ -83,13 +83,26 @@ function pullDataFromSchema(schema) {
             };
         });
     }
+    console.log(schema);
+
+    function getPrepTime(totalTime) {
+        const numOfMins = Number(totalTime.split("PT")[1]?.split("M")[0]);
+
+        return isNaN(numOfMins) ? 0 : numOfMins;
+    }
+
+    function getServes(yield) {
+        const serves = Number(yield.split(" ")?.[0]);
+
+        return isNaN(serves) ? 1 : serves;
+    }
 
     return {
         name: schema.name,
         recipe_category: null,
         instructions: getInstructions(schema.recipeInstructions),
-        prep_time: 25,
-        serves: 2,
+        prep_time: getPrepTime(schema.totalTime),
+        serves: getServes(schema.recipeYield),
         items: getItems(schema.recipeIngredient),
     };
 }
@@ -102,8 +115,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         (async () => {
             try {
                 const dataFromWebpage = message.data;
-
-                console.log(dataFromWebpage);
 
                 const newRecipe = {
                     email: "bob@bob.com",
