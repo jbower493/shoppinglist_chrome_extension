@@ -1,6 +1,8 @@
 const getRecipeButton = document.getElementById("getRecipeData");
 
 getRecipeButton.addEventListener("click", () => {
+    const emailField = document.getElementById("emailAddress");
+    const email = emailField.value;
     // Show loading state
     const buttonContainer = document.getElementById("buttonContainer");
     buttonContainer.innerText = "Loading...";
@@ -18,7 +20,10 @@ getRecipeButton.addEventListener("click", () => {
                     {
                         type: "FROM_POPUP_TO_BACKGROUND",
                         action: "SEND_DATA_TO_SERVER",
-                        data: res.data,
+                        data: {
+                            email: email,
+                            recipe: res.data,
+                        },
                     },
                     (response) => {
                         // Get response back from background script to say it's finished processing

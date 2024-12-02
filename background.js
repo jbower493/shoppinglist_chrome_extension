@@ -113,10 +113,11 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     ) {
         (async () => {
             try {
-                const dataFromWebpage = message.data;
+                const email = message.data.email;
+                const dataFromWebpage = message.data.recipe;
 
                 const newRecipe = {
-                    email: "bob@bob.com",
+                    email: email,
                     recipe: pullDataFromSchema(dataFromWebpage),
                 };
 
